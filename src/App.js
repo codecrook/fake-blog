@@ -7,26 +7,30 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ArticlesList from './pages/ArticlesList';
 import ArticlePage from './pages/ArticlePage';
+import NavBar from './NavBar';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
+        <NavBar />
+        <div id="page-body">
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
 
-        <Route path="/about">
-          <AboutPage />
-        </Route>
+          <Route path="/about">
+            <AboutPage />
+          </Route>
 
-        <Route path="/articles-list">
-          <ArticlesList />
-        </Route>
+          <Route path="/articles-list">
+            <ArticlesList />
+          </Route>
 
-        <Route path="/article">
-          <ArticlePage />
-        </Route>
+          <Route path="/article">
+            <ArticlePage />
+          </Route>
+        </div>
       </div>
     </Router>
   );
