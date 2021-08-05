@@ -1,7 +1,8 @@
 import './App.css';
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -14,25 +15,17 @@ function App() {
     <Router>
       <div className="App">
         <NavBar />
+
         <div id="page-body">
-          <Route path="/" exact>
-            <HomePage />
-          </Route>
-
-          <Route path="/about">
-            <AboutPage />
-          </Route>
-
-          <Route path="/articles-list">
-            <ArticlesList />
-          </Route>
-
-          <Route path="/article">
-            <ArticlePage />
-          </Route>
+          <Switch>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/articles-list" component={ArticlesList} />
+            <Route path="/article/:name" component={ArticlePage} />
+          </Switch>
         </div>
       </div>
-    </Router>
+    </Router >
   );
 }
 
